@@ -47,6 +47,8 @@ body {
 .pen {
 	max-width: @elem-width;
 	margin: 0 auto;
+	opacity: 0;
+	-webkit-animation: 2.5s open 1 forwards;
 	position: relative;
 }
 
@@ -93,6 +95,7 @@ body {
 .widget {
 	width: @elem-width;
 	height: @elem-height;
+	display: block;
 	background: white;
 	position: relative;
 	margin: 0 auto;
@@ -115,25 +118,31 @@ body {
 		// z-index: -1;
 		border-top-left-radius: 0;
 		.transition(0.4s);
+		-webkit-animation: 1s reswitch 1 both;
+
 
 		&:hover {
-			-webkit-transform: translateY(40px);
+			-webkit-animation: 1s switch 1 forwards;
+			// -webkit-animation-fill-mode: forwards;
+			.transition(0.4s);
+			
+
 
 			& > .map {
-				box-shadow: inset 0 -40px 30px 0 rgba(0,0,0,0.77);
-				.transition(0.4s);
+				box-shadow: inset 0 -25px 30px 0 rgba(0,0,0,0.77), inset 0 5px 5px 0 rgba(0,0,0,0.15), inset 0 0 0 140px rgba(0,0,0,0);
+				.transition(0.8s);
 			}
 		}
 	}
 }
 
 .map {
-	background: url('img/map.png') 40% 50% no-repeat;
 	position: absolute;
 	width: inherit;
 	height: inherit;
-	.transition(0.4s);
-	box-shadow: inset 0 -140px 0 0 rgba(0,0,0,0.77);
+	-webkit-mask-image: url(img/shape.svg);
+	.transition(0.8s);
+	box-shadow: inset 0 0 0 140px rgba(0,0,0,0.77);
 	border-bottom-right-radius: 6px;
 	border-bottom-left-radius: 6px;
 }
@@ -301,4 +310,45 @@ body {
 			vertical-align: -6px;
 		}
 	}
+}
+
+@-webkit-keyframes switch {
+	0% {-webkit-transform: translateY(0);}
+	40% {-webkit-transform: translateY(106px);}
+	95% {z-index: 1;}
+	100% {z-index: 2; -webkit-transform: translateY(55px);}
+}
+
+@-webkit-keyframes reswitch {
+	0% {z-index: 2; -webkit-transform: translateY(55px);}
+	5% {z-index: 1;}
+	60% {-webkit-transform: translateY(106px);}
+	100% {-webkit-transform: translateY(0);}
+}
+
+@-webkit-keyframes open {
+	15% {opacity: 0;}
+	100% {opacity: 1;}
+}
+
+.shadow {
+	display: inline-block;
+	position: absolute;
+	height: 55px;
+	width: 100%;
+	background: url('img/shadow-bottom.png') 0 0 repeat-x;
+
+	&.bottom {
+		bottom: 0;
+	}
+}
+
+// customize maps css
+.gmnoprint {
+	display:none;
+}
+
+#map {
+	height: inherit;
+	width: inherit;
 }
