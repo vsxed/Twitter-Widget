@@ -1,0 +1,255 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
+@font-face {
+  font-family: 'more';
+  src: url('font/more');
+  src: url('font/more.eot?#iefix') format('embedded-opentype'), url('font/more.woff') format('woff'), url('font/more.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  padding: 3em 2em;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 1em;
+  line-height: 1;
+  background: #333333;
+}
+.pen {
+  max-width: 350px;
+  margin: 0 auto;
+  position: relative;
+}
+.credit {
+  display: block;
+  max-width: 400px;
+  text-align: center;
+  margin: 150px auto 0;
+  padding: 0;
+  font-size: 0.8em;
+  color: #f0f0f0;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.9);
+}
+.credit p a,
+.credit a {
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+}
+.credit p a:hover,
+.credit a:hover,
+.credit p a:active,
+.credit a:active {
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
+  color: white;
+}
+.credit p a.button,
+.credit a.button {
+  padding: 6px 12px;
+  margin-top: 10px;
+  background: #1a1a1a;
+  border-radius: 3px;
+}
+.credit p a.button:hover,
+.credit a.button:hover {
+  background: #4d4d4d;
+}
+.credit p:last-of-type {
+  margin-bottom: 30px;
+}
+.widget {
+  width: 350px;
+  height: 133px;
+  background: white;
+  position: relative;
+  margin: 0 auto;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.46);
+  border-radius: 6px;
+}
+.widget.front {
+  border-bottom-right-radius: 0;
+  z-index: 1;
+  border-bottom-left-radius: 0;
+}
+.widget.back {
+  border-top-right-radius: 0;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.3);
+  top: 30px;
+  left: 0;
+  border-top-left-radius: 0;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -ms-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+.widget.back:hover {
+  -webkit-transform: translateY(40px);
+}
+.widget.back:hover > .map {
+  box-shadow: inset 0 -40px 30px 0 rgba(0, 0, 0, 0.77);
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -ms-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+.map {
+  background: url('img/map.png') 40% 50% no-repeat;
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -ms-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  box-shadow: inset 0 -140px 0 0 rgba(0, 0, 0, 0.77);
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+.location-info {
+  font-family: "Open Sans", Helvetica, sans-serif;
+  font-size: 12px;
+  color: #b8b8b8;
+  position: absolute;
+  bottom: 8px;
+  left: 20px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
+}
+.location-info:before {
+  font-family: "entypo", sans-serif;
+  content: "\e724";
+  font-size: 125%;
+  margin-right: 10px;
+}
+.profile {
+  padding: 15px;
+  position: relative;
+}
+.profile .profile-picture {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+  display: inline-block;
+  position: relative;
+}
+.profile .profile-picture:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+.profile .profile-picture img {
+  width: inherit;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: inherit;
+}
+.bio {
+  position: relative;
+  margin-left: 15px;
+  display: inline-block;
+  vertical-align: top;
+  max-width: 215px;
+}
+.bio a {
+  text-decoration: none;
+  display: block;
+  line-height: 18px;
+  color: #333333;
+  font-size: 14px;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.bio a span {
+  color: #999999;
+  font-size: 12px;
+}
+.bio a:hover {
+  color: #006fe1;
+}
+.bio .text {
+  font-size: 13px;
+  line-height: 18px;
+}
+.meta {
+  background: #ececec;
+  padding: 10px 0;
+  height: 28px;
+  box-shadow: inset 0 1px 5px 0 rgba(0, 0, 0, 0.15), inset 0 -2px 0 0 #dadada;
+}
+.meta .sep {
+  display: inline-block;
+  background: url('img/seperator.png') 0 0 no-repeat;
+  width: 2px;
+  height: 42px;
+  position: absolute;
+  bottom: 0;
+}
+.meta .info {
+  font-size: 14px;
+  color: #444444;
+  display: inline-block;
+  font-weight: 600;
+  margin: 0 15px;
+  font-family: "Helvetica", Helvetica, sans-serif;
+}
+.meta .info.co.tweets:after,
+.meta .info.co.following:after,
+.meta .info.co.followers:after {
+  text-transform: uppercase;
+  display: block;
+  font-size: 11px;
+  line-height: 18px;
+  color: #888;
+  font-weight: 400;
+}
+.meta .info.co.tweets:after {
+  content: 'Tweets';
+}
+.meta .info.co.following:after {
+  content: 'Following';
+}
+.meta .info.co.followers:after {
+  content: 'Followers';
+}
+.btn {
+  width: 30px;
+  cursor: pointer;
+  height: 28px;
+  background: #f8f8f8;
+  display: inline-block;
+  position: absolute;
+  right: 15px;
+  font-family: "entypo", sans-serif;
+  text-align: center;
+  vertical-align: top;
+  border-radius: 4px;
+  box-shadow: 0 0 0 1px #b1b1b1, inset 0 1px 0 0 rgba(255, 255, 255, 0.9);
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.btn:hover {
+  background: #ececec;
+}
+.btn.settings {
+  top: 15px;
+}
+.btn.settings:before {
+  content: "\2699";
+  color: #656565;
+  font-size: 18px;
+  vertical-align: -6px;
+}
+.btn.dm:before {
+  content: "\2709";
+  color: #656565;
+  font-size: 18px;
+  vertical-align: -6px;
+}

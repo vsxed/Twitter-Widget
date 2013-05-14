@@ -1,0 +1,304 @@
+@import url(http://weloveiconfonts.com/api/?family=entypo);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
+
+@grey: #f0f0f0;
+@shadow: rgba(0,0,0,0.165);
+@highlight: #55beeb;
+@bg-col: #333;
+
+@elem-width: 350px;
+@elem-height: 133px;
+@main-color: #333;
+@sec-color: #999;
+@h-col: #006fe1;
+
+.transition (@trans-time, @trans-grad:ease-in-out) {
+  // -webkit-transform: translate3d(0,0,0);
+  //         transform: translate3d(0,0,0);
+  -webkit-transition: all @trans-time @trans-grad;  
+     -moz-transition: all @trans-time @trans-grad;
+      -ms-transition: all @trans-time @trans-grad;
+       -o-transition: all @trans-time @trans-grad;
+          transition: all @trans-time @trans-grad;
+}
+.webfont (@fontname) {
+  font-family: '@{fontname}';
+  src:url('font/@{fontname}');
+  src:url('font/@{fontname}.eot?#iefix') format('embedded-opentype'),
+      url('font/@{fontname}.woff') format('woff'),
+      url('font/@{fontname}.ttf') format('truetype');
+  font-weight: normal;
+  font-style:  normal;
+}
+
+@font-face{
+	.webfont(more);
+}
+
+// -- Codepen related --
+body {
+  padding: 3em 2em;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 1em;
+  line-height: 1;
+  background: @bg-col;
+}
+
+.pen {
+	max-width: @elem-width;
+	margin: 0 auto;
+	position: relative;
+}
+
+.credit {
+	display: block;
+	max-width: 400px;
+	text-align: center;
+	margin: 150px auto 0;
+	padding: 0;
+	font-size: 0.8em;
+	color: @grey;
+	text-shadow: 0 1px 0 rgba(0,0,0,0.9);
+
+	p a,
+	a {
+		color: white;
+		text-decoration: none;
+		font-weight: 700;
+
+		&:hover,
+		&:active {
+			text-shadow: 0 0 5px rgba(255,255,255,0.4);
+			color: white;
+		}
+
+		&.button {
+			padding: 6px 12px;
+			margin-top: 10px;
+			background: darken(@bg-col, 10%);
+			border-radius: 3px;
+
+			&:hover {
+				background: lighten(@bg-col, 10%);
+			}
+		}
+	}
+
+	p:last-of-type {
+		margin-bottom: 30px;
+	}
+}
+
+// -- Pen related --
+.widget {
+	width: @elem-width;
+	height: @elem-height;
+	background: white;
+	position: relative;
+	margin: 0 auto;
+	box-shadow: 0 2px 6px 0 rgba(0,0,0,0.46);
+	border-radius: 6px;
+
+	&.front {
+		border-bottom-right-radius: 0;
+		z-index: 1;
+		// opacity: 0; //Debugging
+		border-bottom-left-radius: 0;
+	}
+
+	&.back {
+		border-top-right-radius: 0;
+		position: absolute;
+		background: rgba(0,0,0,0.30);
+		top: 30px;
+		left: 0;
+		// z-index: -1;
+		border-top-left-radius: 0;
+		.transition(0.4s);
+
+		&:hover {
+			-webkit-transform: translateY(40px);
+
+			& > .map {
+				box-shadow: inset 0 -40px 30px 0 rgba(0,0,0,0.77);
+				.transition(0.4s);
+			}
+		}
+	}
+}
+
+.map {
+	background: url('img/map.png') 40% 50% no-repeat;
+	position: absolute;
+	width: inherit;
+	height: inherit;
+	.transition(0.4s);
+	box-shadow: inset 0 -140px 0 0 rgba(0,0,0,0.77);
+	border-bottom-right-radius: 6px;
+	border-bottom-left-radius: 6px;
+}
+
+.location-info {
+	font-family: "Open Sans", Helvetica, sans-serif;
+	font-size: 12px;
+	color: #b8b8b8;
+	position: absolute;
+	bottom: 8px;
+	left: 20px;
+	text-shadow: 0 1px 2px rgba(0,0,0,0.75);
+
+	&:before {
+		font-family: "entypo", sans-serif;
+		content: "\e724";
+		font-size: 125%;
+		margin-right: 10px;
+	}
+}
+
+.profile {
+	padding: 15px;
+	position: relative;
+
+	.profile-picture {
+		width: 50px;
+		height: 50px;
+		border: 1px solid #ddd;
+		border-radius: 4px;
+		overflow: hidden;
+		display: inline-block;
+		position: relative;
+
+		&:hover {
+			background: rgba(0,0,0,0.4);
+		}
+
+		img {
+			width: inherit;
+			position: absolute;
+			top:0;
+			left: 0;
+			height: inherit;
+		}
+	}
+}
+
+.bio {
+	position: relative;
+	margin-left: 15px;
+	display: inline-block;
+	vertical-align: top;
+	max-width: 215px;
+	
+	a {
+		text-decoration: none;
+		display: block;
+		line-height: 18px;
+		color: @main-color;
+		font-size: 14px;
+		.transition(0.2s);
+
+		span {
+			color: @sec-color;
+			font-size: 12px;
+		}
+
+		&:hover {
+			color: @h-col;
+		}
+	}
+
+	.text {
+		font-size: 13px;
+		line-height: 18px;
+	}
+}
+
+.meta {
+	background: #ececec;
+	padding: 10px 0;
+	height: 28px;
+	box-shadow: inset 0 1px 5px 0 rgba(0,0,0,0.15), inset 0 -2px 0 0 #dadada;
+
+	.sep {
+		display: inline-block;
+		background: url('img/seperator.png') 0 0 no-repeat;
+		width: 2px;
+		height: 42px;
+		position: absolute;
+		bottom: 0;
+	}
+
+	.info {
+		font-size: 14px;
+		color: #444444;
+		display: inline-block;
+		font-weight: 600;
+		margin: 0 15px;
+		font-family: "Helvetica", Helvetica, sans-serif;
+
+		&.co {
+			&.tweets:after, 
+			&.following:after,
+			&.followers:after {
+				text-transform: uppercase;
+				display: block;
+				font-size: 11px;
+				line-height: 18px;
+				color: #888;
+				font-weight: 400;
+			}
+
+			&.tweets:after {
+				content: 'Tweets';
+			}
+
+			&.following:after {
+				content: 'Following';
+			}
+
+			&.followers:after {
+				content: 'Followers';
+			}
+		}
+	}
+}
+
+.btn {
+	width: 30px;
+	cursor: pointer;
+	height: 28px;
+	background: #f8f8f8;
+	display: inline-block;
+	position: absolute;
+	right: 15px;
+	font-family: "entypo", sans-serif;
+	text-align: center;
+	vertical-align: top;
+	border-radius: 4px;
+	box-shadow: 0 0 0 1px #b1b1b1, inset 0 1px 0 0 fade(white, 90%);
+	.transition(0.2s);
+
+	&:hover {
+		background: #ececec;
+	}
+
+	&.settings {
+		top: 15px;
+
+		&:before {
+			content: "\2699";
+			color: #656565;
+			font-size: 18px;
+			vertical-align: -6px;
+		}
+	}
+
+	&.dm {
+		&:before {
+			content: "\2709";
+			color: #656565;
+			font-size: 18px;
+			vertical-align: -6px;
+		}
+	}
+}
