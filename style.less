@@ -13,8 +13,6 @@
 @h-col: #006fe1;
 
 .transition (@trans-time, @trans-grad:ease-in-out) {
-  // -webkit-transform: translate3d(0,0,0);
-  //         transform: translate3d(0,0,0);
   -webkit-transition: all @trans-time @trans-grad;  
      -moz-transition: all @trans-time @trans-grad;
       -ms-transition: all @trans-time @trans-grad;
@@ -49,6 +47,9 @@ body {
 	margin: 0 auto;
 	opacity: 0;
 	-webkit-animation: 2.5s open 1 forwards;
+	-moz-animation: 2.5s open 1 forwards;
+	-o-animation: 2.5s open 1 forwards;
+	animation: 2.5s open 1 forwards;
 	position: relative;
 }
 
@@ -104,8 +105,6 @@ body {
 
 	&.front {
 		border-bottom-right-radius: 0;
-		// z-index: 1;
-		// opacity: 0; //Debugging
 		border-bottom-left-radius: 0;
 	}
 
@@ -115,15 +114,19 @@ body {
 		background: rgba(0,0,0,0.30);
 		top: 30px;
 		left: 0;
-		// z-index: -1;
 		border-top-left-radius: 0;
 		.transition(0.4s);
 		-webkit-animation: 1s reswitch 1 both;
+		-moz-animation: 1s reswitch 1 both;
+		-o-animation: 1s reswitch 1 both;
+		animation: 1s reswitch 1 both;
 
 
 		&:hover {
 			-webkit-animation: 1s switch 1 forwards;
-			// -webkit-animation-fill-mode: forwards;
+			-moz-animation: 1s switch 1 forwards;
+			-o-animation: 1s switch 1 forwards;
+			animation: 1s switch 1 forwards;
 			.transition(0.4s);
 
 			& span {
@@ -148,7 +151,11 @@ body {
 	position: absolute;
 	width: inherit;
 	height: inherit;
+	overflow: hidden;
 	-webkit-mask-image: url(img/shape.svg);
+	-moz-mask-image: url(img/shape.svg);
+	-o-mask-image: url(img/shape.svg);
+	mask-image: url(img/shape.svg);
 	.transition(0.8s);
 	box-shadow: inset 0 0 0 140px rgba(0,0,0,0.77);
 	border-bottom-right-radius: 6px;
@@ -342,10 +349,73 @@ body {
 	100% {opacity: 1;}
 }
 
+@-moz-keyframes switch {
+	0% {-moz-transform: translateY(0);}
+	40% {-moz-transform: translateY(106px);}
+	95% {z-index: 1;}
+	100% {z-index: 2 !important; -moz-transform: translateY(55px);}
+}
+
+@-moz-keyframes reswitch {
+	0% {z-index: 2; -moz-transform: translateY(55px);}
+	5% {z-index: 1;}
+	60% {-moz-transform: translateY(106px);}
+	100% {-moz-transform: translateY(0);}
+}
+
+@-moz-keyframes open {
+	15% {opacity: 0;}
+	100% {opacity: 1;}
+}
+
+@-o-keyframes switch {
+	0% {-o-transform: translateY(0);}
+	40% {-o-transform: translateY(106px);}
+	95% {z-index: 1;}
+	100% {z-index: 2; -o-transform: translateY(55px);}
+}
+
+@-o-keyframes reswitch {
+	0% {z-index: 2; -o-transform: translateY(55px);}
+	5% {z-index: 1;}
+	60% {-o-transform: translateY(106px);}
+	100% {-o-transform: translateY(0);}
+}
+
+@-o-keyframes open {
+	15% {opacity: 0;}
+	100% {opacity: 1;}
+}
+
+@keyframes switch {
+	0% {transform: translateY(0);}
+	40% {transform: translateY(106px);}
+	95% {z-index: 1;}
+	100% {z-index: 2; transform: translateY(55px);}
+}
+
+@keyframes reswitch {
+	0% {z-index: 2; transform: translateY(55px);}
+	5% {z-index: 1;}
+	60% {transform: translateY(106px);}
+	100% {transform: translateY(0);}
+}
+
+@keyframes open {
+	15% {opacity: 0;}
+	100% {opacity: 1;}
+}
+
 .shadow {
 	display: inline-block;
 	position: absolute;
 	height: 55px;
+	-webkit-mask-image: url(img/shape.svg);
+	-moz-mask-image: url(img/shape.svg);
+	-o-mask-image: url(img/shape.svg);
+	mask-image: url(img/shape.svg);
+	border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
 	.transition(0.4s);
 	width: 100%;
 	background: url('img/shadow-bottom.png') 0 0 repeat-x;
@@ -363,4 +433,5 @@ body {
 #map {
 	height: inherit;
 	width: inherit;
+	display: block;
 }
