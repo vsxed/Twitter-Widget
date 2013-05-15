@@ -104,7 +104,7 @@ body {
 
 	&.front {
 		border-bottom-right-radius: 0;
-		z-index: 1;
+		// z-index: 1;
 		// opacity: 0; //Debugging
 		border-bottom-left-radius: 0;
 	}
@@ -125,8 +125,16 @@ body {
 			-webkit-animation: 1s switch 1 forwards;
 			// -webkit-animation-fill-mode: forwards;
 			.transition(0.4s);
-			
 
+			& span {
+				opacity: 0;
+				.transition(0.4s);
+			}
+
+			& .map > .shadow{
+				opacity: 0;
+				.transition(0.4s);
+			}
 
 			& > .map {
 				box-shadow: inset 0 -25px 30px 0 rgba(0,0,0,0.77), inset 0 5px 5px 0 rgba(0,0,0,0.15), inset 0 0 0 140px rgba(0,0,0,0);
@@ -167,6 +175,8 @@ body {
 .profile {
 	padding: 15px;
 	position: relative;
+	box-shadow: 0 1px 15px 0 rgba(0,0,0,0.45);
+	z-index: 9999999;
 
 	.profile-picture {
 		width: 50px;
@@ -226,7 +236,7 @@ body {
 	background: #ececec;
 	padding: 10px 0;
 	height: 28px;
-	box-shadow: inset 0 1px 5px 0 rgba(0,0,0,0.15), inset 0 -2px 0 0 #dadada;
+	box-shadow: inset 0 1px 5px 0 rgba(0,0,0,0.15);
 
 	.sep {
 		display: inline-block;
@@ -242,6 +252,7 @@ body {
 		color: #444444;
 		display: inline-block;
 		font-weight: 600;
+		text-decoration: none;
 		margin: 0 15px;
 		font-family: "Helvetica", Helvetica, sans-serif;
 
@@ -335,11 +346,12 @@ body {
 	display: inline-block;
 	position: absolute;
 	height: 55px;
+	.transition(0.4s);
 	width: 100%;
 	background: url('img/shadow-bottom.png') 0 0 repeat-x;
 
 	&.bottom {
-		bottom: 0;
+		bottom: -5px;
 	}
 }
 

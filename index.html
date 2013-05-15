@@ -6,52 +6,48 @@
 	<link rel="stylesheet" href="style.css">
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     <script>
-function initialize() {
-  var mapOptions = {
-    zoom: 8,
-    center: new google.maps.LatLng(50.937531, 6.960279),
-    disableDefaultUI: true,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-  }
-  var map = new google.maps.Map(document.getElementById('map'),
-                                mapOptions);
-}
+		function initialize() {
+		  var mapOptions = {
+		    zoom: 8,
+		    center: new google.maps.LatLng(50.937531, 6.960279),
+		    disableDefaultUI: true,
+		    mapTypeId: google.maps.MapTypeId.ROADMAP
+		  }
+		  var map = new google.maps.Map(document.getElementById('map'),
+		                                mapOptions);
+		}
 
-google.maps.event.addDomListener(window, 'load', initialize);
-
+		google.maps.event.addDomListener(window, 'load', initialize);
     </script>
 </head>
 <body>
 	<section class="pen">
+		<div class="widget back">
+			<div class="map">
+				<div id="map"></div>
+				<div class="shadow bottom"></div>
+			</div>
+			<span class="location-info">Cologne, Germany</span>
+		</div>
 		<div class="widget front">
 			<div class="profile">
 				<div class="profile-picture">
 					<img src="http://profile.ak.fbcdn.net/hprofile-ak-ash3/c66.66.828.828/s160x160/555833_10200909941136008_1018058323_n.jpg" alt="@vsxed">
 				</div>
 				<div class="bio">
-					<a href="#">Eduard Mayer <span>@vsxed</span></a>
+					<a href="http://www.twitter.com/vsxed" target="_blank">Eduard Mayer <span>@vsxed</span></a>
 					<span class="text">Web Designer & CSS3-Lover - 21<br>Share what you know.</span>
 				</div>
 				<div class="btn settings"></div>
 			</div>
 			<div class="meta">
 				<div class="btn dm"></div>
-				<span class="info co tweets">62.200</span>
+				<a href="http://twitter.com/vsxed" target="_blank" class="info co tweets">62.200</a>
 				<span class="sep"></span>
-				<span class="info co following">175</span>
+				<a href="http://twitter.com/vsxed/following" target="_blank" class="info co following">175</a>
 				<span class="sep"></span>
-				<span class="info co followers">509</span>
+				<a href="http://twitter.com/vsxed/followers" target="_blank" class="info co followers">507</a>
 			</div>
-			
-		</div>
-		<div class="widget back">
-			<div class="map">
-				<div class="shadow bottom"></div>
-				<div id="map"></div>
-
-				<!-- <iframe width="350" height="133" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=k%C3%B6ln&amp;aq=&amp;sll=60.586967,49.570313&amp;sspn=35.576598,114.169922&amp;ie=UTF8&amp;hq=&amp;hnear=Cologne,+North+Rhine-Westphalia,+Germany&amp;ll=50.937531,6.960279&amp;spn=0.04333,0.111494&amp;t=m&amp;z=14&amp;output=embed"></iframe> -->
-			</div>
-			<span class="location-info">Cologne, Germany</span>
 		</div>
 	</section>
 	<section class="credit">
